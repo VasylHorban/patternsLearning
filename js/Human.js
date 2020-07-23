@@ -6,6 +6,7 @@ class Human {
         this.canWalk = true;
         this.birthDay = new Date([data.birthDay]);
         this.canDoHardWork = true;
+        this.responsebilities = [];
     }
     voice() {
         console.log(`I am a ${this.name}.`)
@@ -13,10 +14,19 @@ class Human {
     greetings() {
         console.log(`Hello, my name is ${this.name}, I am a ${this.constructor.name}.`)
     }
-    getResponsebilities() {
-        return this.constructor.name.responsebilities;
+    getResponsebilities(){
+        if(this.responsebilities.length == 1){
+            return this.responsebilities[0]
+        };
+        return this.responsebilities.join(', ');
     }
-    showResponsebilities() {}
+    startDoing(type){
+        console.log(`Start ${getResponsebilities()}`)
+    }
+    showResponsebilities() {
+        console.log(`My work is to ${this.getResponsebilities()}.`)
+    
+    }
 }
 
 class Man extends Human {
