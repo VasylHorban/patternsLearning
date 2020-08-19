@@ -10,10 +10,11 @@ class Animal {
         this.voiceType = data.voiceType;
         this.isEscape = false;
         this.isIll = false;
-        this.alias = data.alias || null
+        this.alias = data.alias || null;
+        this.isHungry = false;
     }
     voice() {
-        console.log(this.voiceType.repeat(3))
+        console.log(this.voiceType)
     }
     escape() {
         if (this.isEscape) {
@@ -28,5 +29,27 @@ class Animal {
         } else {
             this.isIll = true
         }
+    }
+    startHungry(){
+        if (this.hungry) {
+            this.hungry = false
+        } else {
+            this.hungry = true
+        }
+    }
+    
+}
+class Herbivorous extends Animal{
+    constructor(data) {
+        super(data);
+        this.food = data.food;
+        this.isDangerous = data.dangerous || true
+    }
+}
+class Predator extends Animal{
+    constructor(data) {
+        super(data);
+        this.food = data.food;
+        this.isDangerous = data.dangerous || false
     }
 }

@@ -87,40 +87,34 @@ const lain = animalFuctory.create('herbivorous', {
     habitat: 'savane',
     isDangerous: true
 })
-lain.voice();
+
 /////create workers
 const zooWorkers = [
     humanFuctory.create('hunter', {
         name: "Taras",
         skinColor: "White",
-        birthdDay: [1994, 03, 28],
     }, true),
     humanFuctory.create('worker', {
         name: "Andriy",
         skinColor: "White",
-        birthdDay: [1993, 12, 19],
     }, true),
     humanFuctory.create('worker', {
         name: "Semen",
         skinColor: "White",
-        birthdDay: [1997, 10, 04],
     }, true),
     humanFuctory.create('worker', {
         name: "Igor",
         skinColor: "White",
-        nationality : 'belorussian',
-        birthdDay: [1994, 03, 28],
+        nationality: 'belorussian',
     }, true),
     humanFuctory.create('librarian', {
         name: "Oksana",
         skinColor: "White",
-        birthdDay: [1997, 09 ,15],
     }, true),
     humanFuctory.create('nurse', {
         name: "Anna",
         skinColor: "White",
-        nationality : 'pole',
-        birthdDay: [1989, 10 ,01],
+        nationality: 'pole',
     }, true)
 
 ]
@@ -128,78 +122,150 @@ const zooWorkers = [
 const zooAnimals = [
     animalFuctory.create('predator', {
         name: "Lion",
-        habitat :"savanna",
-        gender : 'man',
-        age : 8,
-        price : 1800,
-        voiceType : 'rarr',
-        alias : 'mouse'
+        habitat: "savanna",
+        gender: 'man',
+        age: 8,
+        price: 1800,
+        voiceType: 'rarr',
+        alias: 'mouse'
     }),
     animalFuctory.create('predator', {
         name: "Lion",
-        habitat : "savanna",
-        gender : 'woman',
-        age : 4,
-        price : 1900,
-        voiceType : 'rarr',
-        alias : 'small flower'
+        habitat: "savanna",
+        gender: 'woman',
+        age: 4,
+        price: 1900,
+        voiceType: 'rarr',
+        alias: 'small flower'
     }),
     animalFuctory.create('predator', {
         name: "Tiger",
-        habitat : "jungle",
-        gender : 'woman',
-        age : 6,
-        price : 2500,
-        voiceType : 'rrrarrr',
-        alias : 'bagira'
+        habitat: "jungle",
+        gender: 'woman',
+        age: 6,
+        price: 2500,
+        voiceType: 'rrrarrr',
+        alias: 'bagira'
     }),
     animalFuctory.create('predator', {
         name: "Polar bear",
         habitat: "arctic",
-        gender : 'man',
-        age : 17,
-        price : 5000,
-        voiceType : 'braaar',
-        alias : 'snowman'
+        gender: 'man',
+        age: 17,
+        price: 5000,
+        voiceType: 'braaar',
+        alias: 'snowman'
     }),
     animalFuctory.create('predator', {
         name: "Python",
         habitat: "jungle",
-        gender : 'man',
-        age : 13,
-        price : 2000,
-        voiceType : 'ssss',
-        alias : 'sock'
+        gender: 'man',
+        age: 13,
+        price: 2000,
+        voiceType: 'ssss',
+        alias: 'sock'
     }),
     animalFuctory.create('herbivorous', {
         name: "Elephant",
         habitat: "savanna",
-        gender : 'man',
-        age : 34,
-        price : 12000,
-        voiceType :'ffFFf',
-        alias : 'Daddy'
+        gender: 'man',
+        age: 34,
+        price: 12000,
+        voiceType: 'ffFFf',
+        alias: 'Daddy'
     }),
     animalFuctory.create('herbivorous', {
         name: "Elephant",
-        habitat :"savanna",
-        gender : 'woman',
-        age : 19,
-        price : 15000,
-        voiceType :'ffFFf',
-        alias : 'Mammy'
+        habitat: "savanna",
+        gender: 'woman',
+        age: 19,
+        price: 15000,
+        voiceType: 'ffFFf',
+        alias: 'Mammy'
     }),
     animalFuctory.create('herbivorous', {
         name: "Elephant",
-        habitat :"savanna",
-        gender : 'woman',
-        age : 19,
-        price : 15000,
-        voiceType :'ffFFf',
-        alias : 'Mammy'
-    })
-    
+        habitat: "savanna",
+        gender: 'woman',
+        age: 19,
+        price: 15000,
+        voiceType: 'ffFFf',
+        alias: 'Mammy'
+    }),
+        animalFuctory.create('herbivorous', {
+        name: "Deer",
+        habitat: "savanna",
+        gender: 'man',
+        age: 23,
+        price: 3000,
+        voiceType: 'mmmre',
+
+    }),
+    animalFuctory.create('herbivorous', {
+        name: "Deer",
+        habitat: "savanna",
+        gender: 'man',
+        age: 19,
+        price: 3100,
+        voiceType: 'mmmre',
+
+    }),
+    animalFuctory.create('herbivorous', {
+        name: "Deer",
+        habitat: "savanna",
+        gender: 'woman',
+        age: 30,
+        price: 1900,
+        voiceType: 'mmmre',
+
+    }),
+    animalFuctory.create('herbivorous', {
+        name: "Ostriches",
+        habitat: "savanna",
+        gender: 'woman',
+        age: 10,
+        price: 4900,
+        voiceType: 'klul',
+
+    }),
+    animalFuctory.create('herbivorous', {
+        name: "Hippo",
+        habitat: "savanna",
+        gender: 'man',
+        age: 24,
+        price: 9000,
+        voiceType: 'mmuu',
+    }),
 ]
 
 
+//Mediator//
+class ZooMediator {
+    constructor() {
+        this.workers = {};
+        this.animals = {};
+    }
+    register(workers, animals) {
+        this.workers = workers;
+        this.animals = animals
+    }
+    resolveProplem(type, animal) {
+        let types = {
+            isIll: 'Nurse',
+            isEscape: 'Hunter',
+            isHungry: 'Worker',
+            archiveProblem : 'Librarian'
+        }
+        this.workers.forEach(person => {
+            if (person.constructor.name == types[type] && !person.isBusy) {
+                person.startDoing(type, animal);
+            }
+            this.animals.forEach(elem => {
+                if (elem.name == animal) elem.voice();
+            })
+        })
+    }
+}
 
+const zoo = new ZooMediator();
+zoo.register(zooWorkers, zooAnimals)
